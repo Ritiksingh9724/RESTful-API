@@ -3,11 +3,13 @@ const app = express();
 
 app.use(express.json());
 
+// Routes
 app.use("/products", require("./routes/productRoutes"));
 app.use("/users", require("./routes/userRoutes"));
 app.use("/cart", require("./routes/cartRoutes"));
 app.use("/orders", require("./routes/orderRoutes"));
 
+// Global Error Handler (MUST be after routes)
 const errorHandler = require("./middleware/errorHandler");
 app.use(errorHandler);
 
